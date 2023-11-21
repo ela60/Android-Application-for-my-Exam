@@ -12,7 +12,10 @@ class CartProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 3,
-      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12)
+      ),
       child: Row(
         children: [
           Container(

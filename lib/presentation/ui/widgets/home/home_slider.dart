@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/presentation/ui/utility/app_colors.dart';
+import 'package:project1/presentation/ui/utility/image_assets.dart';
 
 class HomeSlider extends StatefulWidget {
   const HomeSlider({super.key});
@@ -17,21 +18,25 @@ class _HomeSliderState extends State<HomeSlider> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-              height: 180.0,
+              height: 210.0,
               autoPlayInterval: const Duration(seconds: 2),
               onPageChanged: (int page, _) {
                 _selectedSlider.value = page;
               }),
-          items: [1, 2, 3, 4, 5].map((i) {
+          items: [1, 2, 3, 4,5].map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(color: Colors.amber),
+                    decoration: BoxDecoration(color: Colors.amber,
+                image: const DecorationImage(
+                image: AssetImage(ImageAssets.homeSliderPng),
+                ),),
                     alignment: Alignment.center,
-                    child: Text(
-                      'Here You Find your Gorgeous Collections of Bengles text $i'
+                    child:
+                    Text(
+                      'text $i'
                       ,
                       style: TextStyle(fontSize: 16.0),
                     ));

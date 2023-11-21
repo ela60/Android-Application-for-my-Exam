@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:project1/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:project1/presentation/ui/widgets/category_card.dart';
 import 'package:project1/presentation/ui/widgets/product_card.dart';
+import 'package:project1/presentation/ui/widgets/wish_card.dart';
 
 
 
@@ -43,7 +44,7 @@ class _WishListScreensState extends State<WishListScreens> {
               ),
               itemBuilder: (context, index) {
                 return const FittedBox(
-                    child: ProductCard());
+                    child: WishCard());
               }),
         ),
       ),
