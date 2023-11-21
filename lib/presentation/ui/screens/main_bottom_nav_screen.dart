@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project1/presentation/state_holders/main_bottom_nav_controller.dart';
+import 'package:project1/presentation/ui/screens/carts_screen.dart';
 import 'package:project1/presentation/ui/screens/category_list_screens.dart';
 import 'package:project1/presentation/ui/screens/home_screen.dart';
 import 'package:project1/presentation/ui/screens/wish_list_screens.dart';
@@ -17,7 +18,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const CategoryListScreens(),
-    const HomeScreen(),
+    const CarsScreen(),
     const WishListScreens(),
   ];
 

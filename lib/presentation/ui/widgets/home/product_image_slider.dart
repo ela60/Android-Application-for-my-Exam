@@ -32,7 +32,7 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
                     decoration: BoxDecoration(
                         color: Colors.grey.shade400,
                       image: const DecorationImage(
-                        image: AssetImage(ImageAssets.BahariBenglePng1),
+                        image: AssetImage(ImageAssets.craftBayNavLogosJpg),
                       ),
                     ),
                     alignment: Alignment.center,

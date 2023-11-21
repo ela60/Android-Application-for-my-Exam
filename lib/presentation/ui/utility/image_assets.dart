@@ -5,5 +5,6 @@ class ImageAssets{
   static const String  BengleItemsPng ='assets/images/img_2.png';
   static const String  BahariBenglePng ='assets/images/img_3.png';
   static const String  BahariBenglePng1 ='assets/images/img_5.png';
+  static const String  BahariBenglePng2 ='assets/images/img_4.png';
 
 }

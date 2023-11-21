@@ -41,7 +41,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                         title: const Text(
                           'Product Details',
-                          style: TextStyle(color: Colors.black87),
+                          style: TextStyle(color: Colors.black87,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
                         ),
                         backgroundColor: Colors.transparent,
                         elevation: 0,
