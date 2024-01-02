@@ -1,24 +1,22 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:math';
-import 'package:flutter/material.dart';
+//import 'dart:math';
 import 'package:http/http.dart';
-import 'package:task_manager/app.dart';
-import 'package:task_manager/data/models/network_response.dart';
-import 'package:task_manager/ui/screens/auth/login_screen.dart';
-import 'package:get/get.dart';
-import 'package:task_manager/ui/utility/auth_utility.dart';
+import 'package:project1/data/models/network_response.dart';
+
 
 class NetworkCaller{
-  Future<NetworkResponse>getRequest(String url)async{
+
+  //get request method
+  Future<NetWorkResponse>getRequest(String url)async{
     try{
-      Response response=await get(uri.parse(url)
-          headers:{'token':AuthUtility.userInfo.token.toString()});
+      Response response = await get(Uri.parse(url),);
+          // headers:{'token':AuthUtility.userInfo.token.toString()});
       log(response.statusCode.toString());
       log(response.body);
       if(response.statusCode == 200 &&
           jsonDecode(response.body)['status'] =='success'){
-        return NetworkResponse(
+        return NetWorkResponse(
           true, response.statusCode,jsonDecode(response.body));
 
       }
@@ -26,48 +24,48 @@ class NetworkCaller{
         gotoLogin();
       }
       else{
-        return NetWorkResponse(false,response.statusCode.statusCode,null);
+        return NetWorkResponse(false,response.statusCode,null);
       }
     }catch(e){
       log(e.toString());
     }
-    return NetworkResponse(false, -1, null);
+    return NetWorkResponse(false, -1, null);
   }
 
-  Future <NetworkResponse> postRequest (String url, Map<String>, dynamic> body, {
+  Future <NetWorkResponse> postRequest (String url, Map<String, dynamic> body, {
     bool isLogin = false}) async{
     try{
       Response response = await post(
       Uri.parse(url),
   headers:{
         'Content-Type':'application/json',
-          'token':AuthUtility.userInfo.token.toString()
+          // 'token':AuthUtility.userInfo.token.toString()
   },
   body:jsonEncode(body),
       );
-      log(response.statusCode.toSigned());
+      log(response.statusCode.toString());
       log(response.body);
       if(response.statusCode ==200 &&
-     jsonDecode(response.body)['status']=='sucess'{
-        return NetworkResponse(
+     jsonDecode(response.body)['status']=='sucess'){
+        return NetWorkResponse(
         true,
         response.statusCode,
         jsonDecode(response.body),
         );
   }
   else if(response.statusCode ==401){
-    if(isLogin == false){
+    if( isLogin == false){
       gotoLogin();
 
   }
   } else{
-    return NetworkResponse(false,response.statusCode,null);
+    return NetWorkResponse(false,response.statusCode,null);
   }
 
   }catch(e){
       log(e.toString());
   }
-  return NetworkResponse(false,-1,null);
+  return NetWorkResponse(false,-1,null);
   }
   Future<void>gotoLogin() async{
   //   await AuthUtility.clearUserInfo();
@@ -78,4 +76,7 @@ class NetworkCaller{
 
   }
 }
+
+
+
 
