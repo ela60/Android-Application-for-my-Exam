@@ -57,7 +57,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   decoration: const InputDecoration(
                     hintText: 'Email'
                   ),
-                    validator: (String? text){
+                  validator: (String? text){
                     if(text?.isEmpty ?? true){
                       return 'Enter your email address';
                     } else if(text!.isEmpty == false){
