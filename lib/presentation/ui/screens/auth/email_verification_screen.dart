@@ -116,7 +116,8 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         _emailTEController.text
             .trim()); //trim means ashe pashe faka space off krbe
     if (response) {
-      Get.to( () =>const OTPVerificationScreen());
+      Get.to( () => OTPVerificationScreen(email:  _emailTEController.text
+          .trim()));
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
