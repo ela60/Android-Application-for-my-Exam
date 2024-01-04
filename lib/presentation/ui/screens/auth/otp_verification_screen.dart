@@ -15,6 +15,8 @@ class OTPVerificationScreen extends StatefulWidget {
 }
 
 class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
+  final TextEditingController _otpTEController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +56,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                   height: 24,
                 ),
                 PinCodeTextField(
+                  controller: _otpTEController,
                   length: 4,
                   obscureText: false,
                   animationType: AnimationType.fade,
@@ -119,7 +122,9 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
 
                   ]
                 ),),
-                TextButton(onPressed: () {}, child: const Text('Resend'),style: TextButton.styleFrom(
+                TextButton(onPressed: () {
+
+                }, child: const Text('Resend'),style: TextButton.styleFrom(
                  foregroundColor: Colors.grey
                 ),),
               ],

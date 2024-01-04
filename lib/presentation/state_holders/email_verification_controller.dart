@@ -17,6 +17,7 @@ class EmailVerificationController extends GetxController{
   _emailVerificationInProgress= false;
   update();
   if(response.isSuccess){
+   _message = response.responseJson?['data']  ?? '';//four sunRap(??)
    return true;
   }else{
 
