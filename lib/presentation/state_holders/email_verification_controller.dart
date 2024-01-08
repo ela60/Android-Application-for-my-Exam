@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:get/get.dart';
 import 'package:project1/data/models/network_response.dart';
@@ -14,10 +13,11 @@ class EmailVerificationController extends GetxController{
   _emailVerificationInProgress= true;
   update();
   final NetWorkResponse response= await NetworkCaller().getRequest(Url.verifyEmail(email));
+
   _emailVerificationInProgress= false;
   update();
   if(response.isSuccess){
-   _message = response.responseJson?['data']  ?? '';//four sunRap(??)
+   _message = response.responseJson?['data']  ?? '';//four sunRap(??) null jodi ashe tai
    return true;
   }else{
 

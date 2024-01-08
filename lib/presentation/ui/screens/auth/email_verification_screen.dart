@@ -69,9 +69,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   controller: _emailTEController,
                   decoration: const InputDecoration(hintText: 'Email'),
                     validator: (String? text) {
-                    if (text?.isEmpty ?? true) {
+                    if (text?.isEmpty ?? true) { //null check
                       return 'Enter your email address';
-                    } else if (text!.isEmail== false) {
+                    } else if (text!.isEmail== false) { //(!. ) =nullity check )email and false o na
                       //REGEX (Email validator)
                       return 'Enter a valid email address';
                     }
@@ -92,10 +92,11 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         }
                         return ElevatedButton(
 
-                          onPressed: () async {
-                            //(!=Four sun rap)
+                          onPressed: ()  {
+                            //(!.=Four sun rap)
                             if (_formKey.currentState!.validate()) {
-                              verifyEmail(controller);
+                             verifyEmail(controller);
+                              //verifyEmail(controller);
                             }
                           },
                           child: const Text('NEXT'),
@@ -114,10 +115,12 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   Future<void> verifyEmail(EmailVerificationController controller) async {
     final response = await controller.verifyEmail(
         _emailTEController.text
-            .trim()); //trim means ashe pashe faka space off krbe
+            .trim());
+
+    //trim means ashe pashe faka space off krbe
     if (response) {
       Get.to( () => OTPVerificationScreen(email:  _emailTEController.text
-          .trim()));
+          .trim(),));
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -126,7 +129,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
             Text('Email verificaton failed try again'),
           ),
         );
-      }
+     }
     }
   }
 

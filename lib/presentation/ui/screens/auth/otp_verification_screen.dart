@@ -90,43 +90,48 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  child: GetBuilder<OtpVerificationController>(builder: (controller) {
-                    if (controller.otpVerificationInProgress) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                    return  ElevatedButton(
-                        style: ElevatedButton.styleFrom(),
-                        onPressed: () {
-                          verifyOtp(controller);
-                        },
-                        child: const Text('NEXT'),
-                      );
+                  child: GetBuilder<OtpVerificationController>(
+                      builder: (controller) {
+                        if (controller.otpVerificationInProgress) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        return ElevatedButton(
+                            onPressed: () {
+                             verifyOtp(controller);
+                            },
+                            child: const Text('NEXT'),
+                          );
 
-                  }
-                   ),
+                      }
+                  ),
                 ),
 
                 const SizedBox(
                   height: 24,
                 ),
                 RichText(
-                  text:
-                      TextSpan(style: TextStyle(color: Colors.grey), children: [
-                    TextSpan(text: 'This code will expire in'),
-                    TextSpan(
+                  text:const  TextSpan(
+                    style: TextStyle(color: Colors.grey),
+                    children: [
+                      TextSpan(text: 'This code will expire in'),
+                      TextSpan(
                         text: '120s ',
                         style: TextStyle(
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.bold,
-                        ))
-                  ]),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                TextButton(onPressed: (){},
-                  style: TextButton.styleFrom(foregroundColor: Colors.grey),
-                  child: const Text('Resend'),
-                ),
+                TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(foregroundColor: Colors.grey),
+                    child: const Text('Resend'),
+                  ),
+
               ],
             ),
           ),
@@ -136,9 +141,10 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
   }
 
   Future<void> verifyOtp(OtpVerificationController controller) async {
-    final response =
-    await controller.verifyOtp( widget.email,_otpTEController.text.trim(),
-       ); //trim means ashe pashe faka space off krbe
+    final response = await controller.verifyOtp(
+      widget.email,
+      _otpTEController.text.trim(),
+    ); //trim means ashe pashe faka space off krbe
     if (response) {
       Get.offAll(() => const MainBottomNavScreen());
     } else {

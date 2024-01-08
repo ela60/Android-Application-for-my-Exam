@@ -49,12 +49,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(hintText: 'First name'),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
+
                 TextFormField(
                   decoration: const InputDecoration(hintText: 'First name'),
                 ),
