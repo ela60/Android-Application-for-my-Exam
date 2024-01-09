@@ -15,7 +15,7 @@ class AuthController{
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     _accessToken= await sharedPreferences.getString('access_token');
   }
-
+// sob static kora cz instance protiber r create na hok tai
  static bool get isLoggedIn{
     return _accessToken != null;
   }
